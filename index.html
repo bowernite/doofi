@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>The Doofi</title>
-</head>
-<body>
-  <p>Website coming soon! 🎸🥁</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The Doofi</title>
+    <link rel="stylesheet" href="resets.css" />
+    <style>
+      .logo {
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <header>
+      <img src="assets/logo.png" alt="The Doofi logo" class="logo" />
+      <small>(Plural of doofus)</small>
+      <p>
+        <!-- TODO: Fix this text. It's bad -->
+        Covering everything from The Stones to No Diggity, and anything in
+        between.
+      </p>
+      <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? Maybe FB messenger? Maybe separate links for email and FB messenger? Or maybe different things just make it more confusing and less straight forward -->
+      <a href="mailto:thedoofiband@gmail.com">Contact</a>
+    </header>
+
+    <section>
+      <video
+        controls
+        width="1000"
+        src="assets/beast_of_burden.mp4"
+        type="video/mp4"
+      ></video>
+    </section>
+
+    <section>
+      <img src="assets/skinny-1.jpg" />
+      <img src="assets/skinny-2.jpg" />
+      <img src="assets/skinny-3.jpg" />
+      <img src="assets/wide-1.jpg" />
+      <img src="assets/wide-2.jpg" />
+      <img src="assets/wide-3.jpg" />
+      <img src="assets/wide-4.jpg" />
+      <img src="assets/wide-5.jpg" />
+      <img src="assets/square-1.jpg" />
+    </section>
+  </body>
 </html>
