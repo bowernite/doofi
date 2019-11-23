@@ -76,3 +76,8 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+img,
+video {
+  max-width: 100%;
+}
