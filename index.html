@@ -44,8 +44,8 @@
         left: 10%;
       }
 
-      p {
-        font-size: 1.25rem;
+      .header__description {
+        font-size: 1.5rem;
         padding: 1rem;
       }
 
@@ -74,6 +74,14 @@
       .contact-icon {
         width: 100%;
       }
+
+      .gallery-img {
+        padding: 1rem;
+      }
+
+      .video {
+        padding: 1rem;
+      }
     </style>
   </head>
   <body>
@@ -86,11 +94,11 @@
     <header>
       <img src="assets/logo.png" alt="The Doofi logo" class="logo" />
       <div class="header__content">
-        <p>
+        <p class="header__description">
           <!-- TODO: Make this text better? -->
-          Doofi: <em>n.</em> A band of three based in Milwaukee, WI. The music
-          they cover includes all forms of rock, to funk, to hip hop, and
-          everything in between.
+          <strong>Doofi:</strong> <em>n.</em> Plural of doofus. A band of three
+          based in Milwaukee, WI. The music they cover includes all forms of
+          rock, to funk, to hip hop, and everything in between.
         </p>
         <!-- <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small> -->
         <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
@@ -117,6 +125,7 @@
 
     <section>
       <video
+        class="video"
         controls
         width="1000"
         src="assets/beast_of_burden.mp4"
@@ -125,14 +134,13 @@
     </section>
 
     <section>
-      <img src="assets/skinny-1.jpg" />
-      <img src="assets/skinny-2.jpg" />
-      <img src="assets/wide-1.jpg" />
-      <img src="assets/wide-2.jpg" />
-      <img src="assets/wide-3.jpg" />
-      <img src="assets/wide-4.jpg" />
-      <img src="assets/wide-5.jpg" />
-      <img src="assets/square-1.jpg" />
+      <img class="gallery-img" src="assets/wide-1.jpg" />
+      <img class="gallery-img" src="assets/wide-2.jpg" />
+      <img class="gallery-img" src="assets/wide-3.jpg" />
+      <img class="gallery-img" src="assets/skinny-1.jpg" />
+      <img class="gallery-img" src="assets/wide-4.jpg" />
+      <img class="gallery-img" src="assets/wide-5.jpg" />
+      <img class="gallery-img" src="assets/square-1.jpg" />
     </section>
   </body>
 </html>
