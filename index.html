@@ -14,10 +14,34 @@
     <style>
       body {
         font-family: "Fjalla One", Roboto, sans-serif;
+        background: black;
+      }
+
+      header {
+        background: url("/assets/skinny-2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+
+      .header__content {
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 100%
+        );
+        padding-top: 10rem;
+        color: white;
       }
 
       .logo {
-        width: 500px;
+        width: 10rem;
+        filter: invert(1);
+        position: absolute;
+        top: 30%;
+        left: 10%;
       }
 
       p {
@@ -61,31 +85,33 @@
 
     <header>
       <img src="assets/logo.png" alt="The Doofi logo" class="logo" />
-      <p>
-        <!-- TODO: Make this text better? -->
-        The Doofi is a band of three based in Milwaukee, WI. The music they
-        cover includes all forms of rock, to funk, to hip hop, and everything in
-        between.
-      </p>
-      <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small>
-      <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
-      <div class="contact-buttons">
-        <a href="mailto:thedoofiband@gmail.com">
-          <img class="contact-icon" src="/assets/email-icon.svg" alt="" />
-          Email
-        </a>
-        <a href="//facebook.com/thedoofi/">
-          <img
-            class="contact-icon"
-            src="/assets/facebook-blue-circle.png"
-            alt=""
-          />
-          Facebook
-        </a>
-        <a href="//m.me/thedoofi">
-          <img class="contact-icon" src="/assets/messenger.png" alt="" />
-          Messenger
-        </a>
+      <div class="header__content">
+        <p>
+          <!-- TODO: Make this text better? -->
+          Doofi: <em>n.</em> A band of three based in Milwaukee, WI. The music
+          they cover includes all forms of rock, to funk, to hip hop, and
+          everything in between.
+        </p>
+        <!-- <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small> -->
+        <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
+        <!-- <div class="contact-buttons">
+          <a href="mailto:thedoofiband@gmail.com">
+            <img class="contact-icon" src="/assets/email-icon.svg" alt="" />
+            Email
+          </a>
+          <a href="//facebook.com/thedoofi/">
+            <img
+              class="contact-icon"
+              src="/assets/facebook-blue-circle.png"
+              alt=""
+            />
+            Facebook
+          </a>
+          <a href="//m.me/thedoofi">
+            <img class="contact-icon" src="/assets/messenger.png" alt="" />
+            Messenger
+          </a>
+        </div> -->
       </div>
     </header>
 
