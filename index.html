@@ -28,12 +28,6 @@
       .header__content {
         position: absolute;
         bottom: 0;
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 1) 100%
-        );
-        padding-top: 5rem;
       }
 
       .logo {
@@ -49,9 +43,22 @@
         width: 20rem;
       }
 
+      .header__description-wrapper {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.8) 50%,
+          rgba(0, 0, 0, 1) 100%
+        );
+        padding: 5rem 0 0;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+      }
+
       .header__description {
         font-size: 2rem;
-        padding: 1rem;
+        padding: 1.5rem;
         margin: 0 auto;
       }
 
@@ -138,12 +145,14 @@
         />
       </div>
       <div class="header__content">
-        <p class="header__description">
-          <!-- TODO: Make this text better? -->
-          <strong>Doofi:</strong> <em>n.</em> Plural of doofus. A band of three
-          based in Milwaukee, WI. Covering rock, funk, hip hop, and everything
-          in between.
-        </p>
+        <div class="header__description-wrapper">
+          <p class="header__description">
+            <!-- TODO: Make this text better? -->
+            <strong>Doofi:</strong> <em>n.</em> Plural of doofus. A band of
+            three based in Milwaukee, WI. Covering rock, funk, hip hop, and
+            everything in between.
+          </p>
+        </div>
         <!-- <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small> -->
         <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
         <!-- <div class="contact-buttons">
