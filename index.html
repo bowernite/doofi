@@ -50,8 +50,9 @@
       }
 
       .header__description {
-        font-size: 1.5rem;
+        font-size: 2rem;
         padding: 1rem;
+        margin: 0 auto;
       }
 
       .plural-of-doofus {
@@ -86,6 +87,12 @@
 
       .video {
         padding: 1rem;
+      }
+
+      @media (max-width: 500px) {
+        .header__description {
+          font-size: 1.5rem;
+        }
       }
 
       @media (min-width: 900px) {
@@ -125,8 +132,8 @@
         <p class="header__description">
           <!-- TODO: Make this text better? -->
           <strong>Doofi:</strong> <em>n.</em> Plural of doofus. A band of three
-          based in Milwaukee, WI. The music they cover includes all forms of
-          rock, to funk, to hip hop, and everything in between.
+          based in Milwaukee, WI. Covering rock, funk, hip hop, and everything
+          in between.
         </p>
         <!-- <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small> -->
         <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
