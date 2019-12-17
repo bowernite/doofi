@@ -37,11 +37,16 @@
       }
 
       .logo {
-        width: 35%;
+        width: 100%;
         filter: invert(1);
+      }
+
+      .logo-wrapper {
         position: absolute;
         top: 30%;
         left: 10%;
+        max-width: 30%;
+        width: 20rem;
       }
 
       .header__description {
@@ -82,6 +87,22 @@
       .video {
         padding: 1rem;
       }
+
+      @media (min-width: 900px) {
+        header {
+          background: url("/assets/wide-1.jpg");
+          background-position: 0 30%;
+          background-size: 100%;
+          background-repeat: none;
+        }
+
+        .logo-wrapper {
+          background: rgba(0, 0, 0, 0.8);
+          right: 32%;
+          top: 5%;
+          left: unset;
+        }
+      }
     </style>
   </head>
   <body>
@@ -92,7 +113,14 @@
     </nav> -->
 
     <header>
-      <img src="assets/logo.png" alt="The Doofi" class="logo" role="heading" />
+      <div class="logo-wrapper">
+        <img
+          src="assets/logo.png"
+          alt="The Doofi"
+          class="logo"
+          role="heading"
+        />
+      </div>
       <div class="header__content">
         <p class="header__description">
           <!-- TODO: Make this text better? -->
