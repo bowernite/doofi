@@ -181,10 +181,30 @@
 
     <section>
       <header class="section-header"><h2>Photos</h2></header>
-      <img class="gallery-img" src="assets/wide-1.jpg" />
+      <picture>
+        <source
+          class="gallery-img"
+          srcset="assets/wide-1.jpg"
+          media="(max-width: 899px)"
+        />
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        />
+      </picture>
       <img class="gallery-img" src="assets/wide-2.jpg" />
       <img class="gallery-img" src="assets/wide-3.jpg" />
-      <!-- <img class="gallery-img" src="assets/skinny-1.jpg" /> -->
+      <img class="gallery-img" src="assets/skinny-2.jpg" />
+      <!-- TODO: Was trying to only show this on desktop, but it's not too easy given device pixel ratios. Look into that if needed -->
+      <!-- <picture>
+        <source
+          class="gallery-img"
+          srcset="assets/skinny-2.jpg"
+          media="(min-width: 899px)"
+        />
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        />
+      </picture> -->
       <img class="gallery-img" src="assets/wide-4.jpg" />
       <img class="gallery-img" src="assets/wide-5.jpg" />
       <img class="gallery-img" src="assets/square-1.jpg" />
