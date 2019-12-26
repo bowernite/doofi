@@ -92,16 +92,56 @@
         width: 100%;
       }
 
+      section {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+      }
+
+      .section-heading {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .photos-section {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 90rem;
+      }
+
+      .img-groups-container {
+        display: flex;
+      }
+
+      .wide-img-group {
+        flex: 0 1 65rem;
+      }
+
+      .skinny-img-group {
+        flex: 0 1 45rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
       .gallery-img {
         padding: 1rem;
+        width: 100%;
+      }
+
+      .videos-section {
+        width: 100%;
+        max-width: 90rem;
+        margin: 0 auto;
+      }
+
+      .videos-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
 
       .video {
         padding: 1rem;
-      }
-
-      .section-header {
-        display: none;
       }
 
       /* PHONE */
@@ -113,8 +153,16 @@
 
       /* TABLET- */
       @media (max-width: 899px) {
-        .hide-on-desktop {
+        .only-desktop {
           display: none;
+        }
+
+        .img-groups-container {
+          flex-direction: column;
+        }
+
+        .videos-container {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -139,6 +187,10 @@
           right: 32%;
           top: 5%;
           left: unset;
+        }
+
+        .hide-on-desktop {
+          display: none;
         }
       }
     </style>
@@ -186,27 +238,8 @@
       </div>
     </header>
 
-    <section>
-      <header class="section-header"><h2>Photos</h2></header>
-      <picture>
-        <source
-          class="gallery-img"
-          srcset="assets/wide-1--512.jpeg"
-          media="(max-width: 600px)"
-        />
-        <source
-          class="gallery-img"
-          srcset="assets/wide-1--1024.jpg"
-          media="(max-width: 899px)"
-        />
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        />
-      </picture>
-      <img class="gallery-img" src="assets/wide-2.jpg" />
-      <img class="gallery-img" src="assets/wide-3.jpg" />
-      <img class="gallery-img" src="assets/skinny-1.jpg" />
-      <img class="gallery-img hide-on-desktop" src="assets/skinny-2.jpg" />
+    <section class="photos-section">
+      <h2 class="section-heading">Photos</h2>
       <!-- TODO: Was trying to only show this on desktop, but it's not too easy given device pixel ratios. Look into that if needed -->
       <!-- <picture>
         <source
@@ -218,20 +251,52 @@
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         />
       </picture> -->
-      <img class="gallery-img" src="assets/wide-4.jpg" />
-      <img class="gallery-img" src="assets/wide-5.jpg" />
-      <img class="gallery-img" src="assets/square-1.jpg" />
+      <!-- <img class="gallery-img" src="assets/square-1.jpg" /> -->
+
+      <div class="img-groups-container">
+        <div class="wide-img-group">
+          <picture>
+            <source
+              srcset="assets/wide-1--512.jpeg"
+              media="(max-width: 600px)"
+            />
+            <source
+              srcset="assets/wide-1--1024.jpg"
+              media="(max-width: 899px)"
+            />
+            <img
+              class="gallery-img hide-on-desktop"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            />
+          </picture>
+          <img class="gallery-img wide-img" src="assets/wide-3.jpg" />
+          <img class="gallery-img wide-img" src="assets/wide-5.jpg" />
+          <img class="gallery-img wide-img" src="assets/wide-2.jpg" />
+          <img class="gallery-img wide-img" src="assets/wide-4.jpg" />
+        </div>
+
+        <div class="skinny-img-group">
+          <img
+            class="gallery-img skinny-img only-desktop"
+            src="assets/skinny-2.jpg"
+          />
+          <img class="gallery-img skinny-img" src="assets/skinny-1.jpg" />
+        </div>
+      </div>
     </section>
 
-    <section>
-      <header class="section-header"><h2>Videos</h2></header>
-      <video
-        class="video"
-        controls
-        width="1000"
-        src="assets/beast_of_burden.mp4"
-        type="video/mp4"
-      ></video>
+    <section class="videos-section">
+      <h2 class="section-heading">Live Performances</h2>
+
+      <div class="videos-container">
+        <video
+          class="video"
+          controls
+          width="1000"
+          src="assets/beast_of_burden.mp4"
+          type="video/mp4"
+        ></video>
+      </div>
     </section>
   </body>
 </html>
