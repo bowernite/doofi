@@ -15,6 +15,15 @@
       href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap"
       rel="stylesheet"
     />
+    <script>
+      /**
+       * Workaround to be able to calculate the height of the viewport on initial page load, and use it as a CSS variable. The intention for this is for browsers (mainly mobile) who's viewport height changes when the user scrolls. In these cases, browser engines typically calculate `vh`s based on the maximum viewport, not the initial viewport (or a live viewport)
+       */
+      // Calculate the height of the viewport on initial page load
+      const vh = window.innerHeight * 0.01;
+      // Assign the initial viewport height to a CSS variable we can use
+      document.documentElement.style.setProperty("--initial-vh", `${vh}px`);
+    </script>
     <style>
       body {
         font-family: "Fjalla One", Roboto, sans-serif;
@@ -26,7 +35,11 @@
         background: url("/assets/photos/skinny-2--750.jpg");
         background-size: cover;
         background-repeat: no-repeat;
+
+        /* For browsers that don't support CSS variables, this will be the fallback */
         height: 100vh;
+        /* Set the header hero image to be the height of the initial viewport. Avoids weird behavior when using `vh` on mobile browsers where `vh` isn't equal to the true initial viewport height */
+        height: calc(var(--initial-vh, 1vh) * 100);
       }
 
       .header__content {
