@@ -140,8 +140,28 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      .video-wrapper {
+        position: relative;
+      }
+
       .video {
+        position: relative;
+        z-index: 0;
         padding: 1rem;
+      }
+
+      .video-overlay {
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       /* PHONE */
@@ -292,15 +312,20 @@
       <h2 class="section-heading">Live Performances</h2>
 
       <div class="videos-container">
-        <video
-          class="video"
-          controls
-          width="1000"
-          src="assets/live-performances/twist-and-shout.mp4"
-          type="video/mp4"
-          controlslist="nodownload"
-          poster="assets/live-performances/twist-and-shout__poster.png"
-        ></video>
+        <div class="video-wrapper">
+          <video
+            class="video"
+            controls
+            width="1000"
+            src="assets/live-performances/twist-and-shout.mp4"
+            type="video/mp4"
+            controlslist="nodownload"
+            poster="assets/live-performances/twist-and-shout__poster.png"
+          ></video>
+          <span class="video-overlay">
+            Twist and Shout / La Bamba
+          </span>
+        </div>
         <video
           class="video"
           controls
