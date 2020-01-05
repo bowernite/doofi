@@ -51,6 +51,10 @@
       document.documentElement.style.setProperty("--initial-vh", `${vh}px`);
     </script>
     <style>
+      /* orange--light: #ff6434 */
+      /* orange: #dd2c00 */
+      /* orange--dark: #a30000 */
+
       body {
         font-family: "Fjalla One", Roboto, sans-serif;
         background: rgb(14, 14, 53);
@@ -110,25 +114,6 @@
         text-align: center;
         font-style: italic;
         font-size: 1rem;
-      }
-
-      .contact-buttons {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 2rem 0rem;
-      }
-
-      .contact-buttons a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 3rem;
-        color: initial;
-        text-decoration: none;
-      }
-
-      .contact-icon {
-        width: 100%;
       }
 
       section {
@@ -192,11 +177,76 @@
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
-        font-size: 24px;
+        font-size: 32px;
         background: #dd2c00;
         color: white;
         text-decoration: none;
         margin: 2rem auto 1rem;
+        transition: background 0.2s;
+        border-radius: 0.75rem;
+      }
+
+      .booking-btn:hover {
+        background: #ff6434;
+      }
+
+      .booking-btn:focus {
+        background: #ff6434;
+      }
+
+      .contact-buttons {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        z-index: 20;
+      }
+
+      .contact-buttons__btn {
+        margin-bottom: 0.5rem;
+        background: #a30000;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        height: 4rem;
+        width: 4rem;
+        transition: background 0.2s;
+      }
+
+      .contact-buttons__btn:focus {
+        background: #dd2c00;
+      }
+
+      .contact-buttons__btn:hover {
+        background: #dd2c00;
+      }
+
+      .contact-buttons__btn:last-child {
+        margin-bottom: 0;
+      }
+
+      .contact-buttons__icon {
+        width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: invert(0.95);
+      }
+
+      .btn {
+        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+          0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+      }
+
+      .btn:hover {
+        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+          0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+          0px 3px 14px 2px rgba(0, 0, 0, 0.12);
       }
 
       /* PHONE */
@@ -280,8 +330,6 @@
             everything in between. Currently accepting bookings.
           </p>
         </div>
-        <!-- <small class="plural-of-doofus">Doofi (n.): Plural of doofus</small> -->
-        <!-- TODO: Review contact links. Should they go to the /contact page, or just be a direct mail link for less clicks? -->
         <!-- <div class="contact-buttons">
           <a href="mailto:thedoofiband@gmail.com">
             <img class="contact-icon" src="/assets/email-icon.svg" alt="" />
@@ -302,6 +350,25 @@
         </div> -->
       </div>
     </header>
+
+    <div class="contact-buttons">
+      <a href="mailto:thedoofiband@gmail.com" class="contact-buttons__btn btn">
+        <img
+          class="contact-buttons__icon"
+          src="/assets/email-icon.svg"
+          alt=""
+        />
+        <!-- <small>Email</small> -->
+      </a>
+      <a href="//facebook.com/thedoofi/" class="contact-buttons__btn btn">
+        <img class="contact-buttons__icon" src="/assets/fb.png" alt="" />
+        <!-- <small>Facebook</small> -->
+      </a>
+      <a href="//m.me/thedoofi" class="contact-buttons__btn btn">
+        <img class="contact-buttons__icon" src="/assets/messenger.png" alt="" />
+        <!-- <small>Message</small> -->
+      </a>
+    </div>
 
     <section class="photos-section">
       <h2 class="section-heading">Photos</h2>
@@ -353,9 +420,9 @@
       </div>
 
       <a
-        class="booking-btn"
-        href="mailto:thedoofiband@gmail.com?subject='Booking Inquiry'"
-        >Start a Booking</a
+        class="booking-btn btn"
+        href="mailto:thedoofiband@gmail.com?subject=Booking Inquiry"
+        >Book Now</a
       >
     </section>
 
@@ -399,9 +466,9 @@
       </div>
 
       <a
-        class="booking-btn"
+        class="booking-btn btn"
         href="mailto:thedoofiband@gmail.com?subject=Booking Inquiry"
-        >Start a Booking</a
+        >Book Now</a
       >
     </section>
   </body>
