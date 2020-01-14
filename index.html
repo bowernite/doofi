@@ -46,9 +46,28 @@
        * Workaround to be able to calculate the height of the viewport on initial page load, and use it as a CSS variable. The intention for this is for browsers (mainly mobile) who's viewport height changes when the user scrolls. In these cases, browser engines typically calculate `vh`s based on the maximum viewport, not the initial viewport (or a live viewport)
        */
       // Calculate the height of the viewport on initial page load
-      const vh = window.innerHeight * 0.01;
+      var vh = window.innerHeight * 0.01;
       // Assign the initial viewport height to a CSS variable we can use
       document.documentElement.style.setProperty("--initial-vh", `${vh}px`);
+
+      var videos = {
+        twist: {
+          src: "assets/live-performances/twist-and-shout.mp4"
+        },
+        shout: {
+          src: "assets/live-performances/shout.mp4"
+        },
+        beast: {
+          src: "assets/live-performances/beast-of-burden.mp4"
+        },
+        psycho: {
+          src: "assets/live-performances/psycho-killer.mp4"
+        }
+      };
+      function selectVideo(video) {
+        var videoEl = document.querySelector("#selected-video");
+        videoEl.src = videos[video].src;
+      }
     </script>
     <style>
       /* purple--light: #6746c3 */
@@ -442,40 +461,33 @@
     <section class="videos-section">
       <h2 class="section-heading">Live Performances</h2>
 
-      <div class="videos-container">
+      <div class="video-player">
+        <div class="video-selector">
+          <!-- TODO: Special styling for the artist name -->
+          <button class="video-button" onclick="selectVideo('twist')">
+            Twist and Shout / La Bamba
+          </button>
+          <button class="video-button" onclick="selectVideo('shout')">
+            Shout - The Isley Brothers
+          </button>
+          <button class="video-button" onclick="selectVideo('beast')">
+            Beast of Burden - The Rolling Stones
+          </button>
+          <button class="video-button" onclick="selectVideo('psycho')">
+            Psycho Killer - The Talking Heads
+          </button>
+        </div>
+        <!-- TODO: What to do with poster here? -->
         <video
+          id="selected-video"
           class="video"
           controls
           width="1000"
           src="assets/live-performances/twist-and-shout.mp4"
           type="video/mp4"
           controlslist="nodownload"
-          poster="assets/live-performances/twist-and-shout__poster.png"
         ></video>
-        <video
-          class="video"
-          controls
-          width="1000"
-          src="assets/live-performances/shout.mp4"
-          type="video/mp4"
-          controlslist="nodownload"
-        ></video>
-        <video
-          class="video"
-          controls
-          width="1000"
-          src="assets/live-performances/beast-of-burden.mp4"
-          type="video/mp4"
-          controlslist="nodownload"
-        ></video>
-        <video
-          class="video"
-          controls
-          width="1000"
-          src="assets/live-performances/psycho-killer.mp4"
-          type="video/mp4"
-          controlslist="nodownload"
-        ></video>
+        <!-- poster="assets/live-performances/twist-and-shout__poster.png" -->
       </div>
 
       <a
