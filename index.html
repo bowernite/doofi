@@ -77,19 +77,18 @@
       }
     </script>
     <style>
-      /* purple--light: #6746c3 */
-      /* purple: #311b92 */
-      /* purple--dark: #000063 or rgb(0, 0, 93) */
-
-      /* deep-purple: #000063 or rgb(0, 0, 93) */
+      /* purple--light: #432892 */
+      /* purple: #000063 */
+      /* purple--dark: #000039 or rgb(0, 0, 57) */
 
       /* orange--light: #ff6434 */
       /* orange: #dd2c00 */
       /* orange--dark: #a30000 */
+      /* orange--darker: #6d0000 */
 
       body {
         font-family: "Fjalla One", Roboto, sans-serif;
-        background: rgb(0, 0, 93);
+        background: rgb(0, 0, 57);
         color: white;
       }
 
@@ -188,17 +187,51 @@
 
       .videos-section {
         width: 100%;
-        max-width: 90rem;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #a30000;
       }
 
-      .videos-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+      .video-player {
+        display: flex;
+        border: 1px solid white;
+        padding: 2rem;
+        background: #000063;
+        border-radius: 4rem;
       }
 
-      .video {
-        padding: 1rem;
+      .video-selector {
+        display: flex;
+        flex-direction: column;
+        margin-right: 2rem;
+      }
+
+      .video-button {
+        padding: 2rem;
+        background: transparent;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border: 1px solid white;
+        border-radius: 2rem;
+      }
+
+      .video-button small {
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .video-button:active,
+      .video-button:hover,
+      .video-button--selected {
+        background: #432892;
+        color: white;
+      }
+
+      .video-button:not(:last-of-type) {
+        margin-bottom: 1rem;
       }
 
       .booking-btn {
@@ -214,7 +247,6 @@
         color: white;
         text-decoration: none;
         margin: 2rem auto 1rem;
-        transition: background 0.2s;
         border-radius: 0.75rem;
       }
 
@@ -237,7 +269,7 @@
 
       .contact-buttons__btn {
         margin-bottom: 1rem;
-        background: #a30000;
+        background: #6d0000;
         color: white;
         text-decoration: none;
         display: flex;
@@ -271,6 +303,7 @@
       }
 
       .btn {
+        transition: background 0.2s;
         box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
           0px 6px 10px 0px rgba(0, 0, 0, 0.14),
           0px 1px 18px 0px rgba(0, 0, 0, 0.12);
@@ -344,7 +377,7 @@
             to bottom,
             rgba(0, 0, 93, 0) 0%,
             rgba(0, 0, 93, 0.8) 7rem,
-            rgb(0, 0, 93) 100%
+            rgb(0, 0, 57) 100%
           );
         }
 
@@ -471,17 +504,25 @@
       <div class="video-player">
         <div class="video-selector">
           <!-- TODO: Special styling for the artist name -->
-          <button class="video-button" onclick="selectVideo('twist')">
+          <button class="video-button btn" onclick="selectVideo('twist')">
             Twist and Shout / La Bamba
+            <br />
+            <small>The Beatles / Ritche Valens</small>
           </button>
-          <button class="video-button" onclick="selectVideo('shout')">
-            Shout - The Isley Brothers
+          <button class="video-button btn" onclick="selectVideo('shout')">
+            Shout
+            <br />
+            <small>The Isley Brothers</small>
           </button>
-          <button class="video-button" onclick="selectVideo('beast')">
-            Beast of Burden - The Rolling Stones
+          <button class="video-button btn" onclick="selectVideo('beast')">
+            Beast of Burden
+            <br />
+            <small>The Rolling Stones</small>
           </button>
-          <button class="video-button" onclick="selectVideo('psycho')">
-            Psycho Killer - The Talking Heads
+          <button class="video-button btn" onclick="selectVideo('psycho')">
+            Psycho Killer
+            <br />
+            <small>The Talking Heads</small>
           </button>
         </div>
         <!-- TODO: What to do with poster here? -->
@@ -489,6 +530,7 @@
           id="selected-video"
           class="video"
           controls
+          height="560"
           width="1000"
           src="assets/live-performances/twist-and-shout.mp4"
           type="video/mp4"
