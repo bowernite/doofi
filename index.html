@@ -52,21 +52,28 @@
 
       var videos = {
         twist: {
-          src: "assets/live-performances/twist-and-shout.mp4"
+          src: "assets/live-performances/twist-and-shout.mp4",
+          poster: "assets/live-performances/twist-and-shout__poster.png"
         },
         shout: {
-          src: "assets/live-performances/shout.mp4"
+          src: "assets/live-performances/shout.mp4",
+          poster: "assets/live-performances/shout__poster.png"
         },
         beast: {
-          src: "assets/live-performances/beast-of-burden.mp4"
+          src: "assets/live-performances/beast-of-burden.mp4",
+          poster: "assets/live-performances/beast-of-burden__poster.png"
         },
         psycho: {
-          src: "assets/live-performances/psycho-killer.mp4"
+          src: "assets/live-performances/psycho-killer.mp4",
+          poster: "assets/live-performances/psycho-killer__poster.png"
         }
       };
       function selectVideo(video) {
+        var videoInfo = videos[video];
         var videoEl = document.querySelector("#selected-video");
-        videoEl.src = videos[video].src;
+
+        videoEl.src = videoInfo.src;
+        videoEl.poster = videoInfo.poster;
       }
     </script>
     <style>
