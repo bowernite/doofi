@@ -199,6 +199,7 @@
 
       .video-player {
         display: flex;
+        flex-direction: column;
         border: 1px solid white;
         padding: 2rem;
         background: #000063;
@@ -208,8 +209,11 @@
 
       .video-selector {
         display: flex;
-        flex-direction: column;
-        margin-right: 2rem;
+        margin-top: 2rem;
+        flex-direction: row;
+        overflow-x: scroll;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
 
       .video-button {
@@ -220,6 +224,9 @@
         cursor: pointer;
         border: 1px solid white;
         border-radius: 2rem;
+
+        flex: 1 1 12rem;
+        margin-right: 1rem;
       }
 
       .video-button small {
@@ -232,10 +239,6 @@
       .video-button--selected {
         background: #432892;
         color: white;
-      }
-
-      .video-button:not(:last-of-type) {
-        margin-bottom: 1rem;
       }
 
       .video-container {
@@ -363,6 +366,26 @@
         }
       }
 
+      /* Video selector gradient one-off */
+      @media (max-width: 670px) {
+        .video-selector {
+          mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20px,
+            black 90%,
+            transparent
+          );
+          -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20px,
+            black 90%,
+            transparent
+          );
+        }
+      }
+
       /* TABLET- */
       @media (max-width: 899px) {
         .only-desktop {
@@ -384,28 +407,15 @@
           flex-direction: column;
           max-width: unset;
           padding-top: 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
 
         .video-selector {
           flex-direction: row;
           overflow-x: scroll;
           margin-right: 0;
-          padding-left: 1rem;
           padding-right: 1rem;
-          margin-bottom: 1rem;
-          mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 20px,
-            black 90%,
-            transparent
-          );
-          -webkit-mask-image: linear-gradient(
-            to right,
-            black,
-            black 95%,
-            transparent
-          );
         }
 
         .video-button {
@@ -414,7 +424,6 @@
           font-size: 1rem;
           margin-bottom: 1rem;
           padding: 1rem;
-          margin-right: 1rem !important;
         }
 
         .video-button small {
@@ -567,8 +576,18 @@
       <h2 class="section-heading">Live Performances</h2>
 
       <div class="video-player">
+        <div class="video-container">
+          <video
+            id="selected-video"
+            class="video"
+            controls
+            src="assets/live-performances/twist-and-shout.mp4"
+            type="video/mp4"
+            controlslist="nodownload"
+            poster="assets/live-performances/twist-and-shout__poster.png"
+          ></video>
+        </div>
         <div class="video-selector">
-          <!-- TODO: Special styling for the artist name -->
           <button class="video-button btn" onclick="selectVideo('twist')">
             Twist and Shout / La Bamba
             <br />
@@ -589,18 +608,6 @@
             <br />
             <small>The Talking Heads</small>
           </button>
-        </div>
-        <!-- TODO: What to do with poster here? -->
-        <div class="video-container">
-          <video
-            id="selected-video"
-            class="video"
-            controls
-            src="assets/live-performances/twist-and-shout.mp4"
-            type="video/mp4"
-            controlslist="nodownload"
-            poster="assets/live-performances/twist-and-shout__poster.png"
-          ></video>
         </div>
       </div>
 
