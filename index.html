@@ -283,12 +283,18 @@
         border-radius: 0.75rem;
       }
 
-      .booking-btn:hover {
+      .booking-btn:hover,
+      .booking-btn:focus {
         background: #ff6434;
       }
 
-      .booking-btn:focus {
-        background: #ff6434;
+      .booking-btn--purple {
+        background: #000063;
+      }
+
+      .booking-btn--purple:hover,
+      .booking-btn--purple:focus {
+        background: #432892;
       }
 
       .contact-buttons {
@@ -622,7 +628,7 @@
       </div>
 
       <a
-        class="booking-btn btn"
+        class="booking-btn booking-btn--purple btn"
         href="mailto:thedoofiband@gmail.com?subject=Booking Inquiry"
         >Book Now</a
       >
