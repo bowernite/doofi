@@ -231,6 +231,9 @@
         border-radius: 2rem;
 
         flex: 1 1 12rem;
+      }
+
+      .video-button:not(:last-of-type) {
         margin-right: 1rem;
       }
 
@@ -238,10 +241,6 @@
         font-size: 0.75rem;
         letter-spacing: 1.2px;
       }
-
-      /* purple--light: #432892 */
-      /* purple: #000063 */
-      /* purple--dark: #000039 or rgb(0, 0, 57) */
 
       .video-button:active,
       .video-button:hover,
@@ -265,6 +264,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        border-radius: 2rem;
       }
 
       .booking-btn {
@@ -376,7 +376,7 @@
       }
 
       /* Video selector gradient one-off */
-      @media (max-width: 670px) {
+      @media (max-width: 700px) {
         .video-selector {
           mask-image: linear-gradient(
             to right,
@@ -426,8 +426,8 @@
         }
 
         .video-button {
-          min-width: max-content;
-          max-width: 10rem;
+          min-width: 10rem;
+          flex-basis: max-content;
           font-size: 1rem;
           margin-bottom: 1rem;
           padding: 1rem;
