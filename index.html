@@ -68,12 +68,17 @@
           poster: "assets/live-performances/psycho-killer__poster.png"
         }
       };
-      function selectVideo(video) {
+      function selectVideo(video, button) {
         var videoInfo = videos[video];
         var videoEl = document.querySelector("#selected-video");
-
         videoEl.src = videoInfo.src;
         videoEl.poster = videoInfo.poster;
+
+        // Style selected button/video
+        document.querySelectorAll(".video-button").forEach(button => {
+          button.classList.remove("video-button--selected");
+        });
+        button.classList.add("video-button--selected");
       }
     </script>
     <style>
@@ -590,22 +595,25 @@
           ></video>
         </div>
         <div class="video-selector">
-          <button class="video-button btn" onclick="selectVideo('twist')">
+          <button class="video-button btn" onclick="selectVideo('twist', this)">
             Twist and Shout / La Bamba
             <br />
             <small>The Beatles / Ritchie Valens</small>
           </button>
-          <button class="video-button btn" onclick="selectVideo('shout')">
+          <button class="video-button btn" onclick="selectVideo('shout', this)">
             Shout
             <br />
             <small>The Isley Brothers</small>
           </button>
-          <button class="video-button btn" onclick="selectVideo('beast')">
+          <button class="video-button btn" onclick="selectVideo('beast', this)">
             Beast of Burden
             <br />
             <small>The Rolling Stones</small>
           </button>
-          <button class="video-button btn" onclick="selectVideo('psycho')">
+          <button
+            class="video-button btn"
+            onclick="selectVideo('psycho', this)"
+          >
             Psycho Killer
             <br />
             <small>The Talking Heads</small>
