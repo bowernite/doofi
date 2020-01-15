@@ -207,11 +207,8 @@
       .video-player {
         display: flex;
         flex-direction: column;
-        border: 1px solid white;
-        padding: 2rem;
-        background: #000063;
-        border-radius: 4rem;
         max-width: 100%;
+        margin-bottom: 4rem;
       }
 
       .video-selector {
@@ -221,11 +218,12 @@
         overflow-x: scroll;
         padding-left: 1rem;
         padding-right: 1rem;
+        padding-bottom: 0.5rem;
       }
 
       .video-button {
         padding: 2rem;
-        background: transparent;
+        background: #000063;
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
@@ -240,6 +238,10 @@
         font-size: 0.75rem;
         letter-spacing: 1.2px;
       }
+
+      /* purple--light: #432892 */
+      /* purple: #000063 */
+      /* purple--dark: #000039 or rgb(0, 0, 57) */
 
       .video-button:active,
       .video-button:hover,
@@ -408,14 +410,12 @@
         }
 
         .video-player {
-          border-radius: 0;
-          border: none;
-          background: transparent;
           flex-direction: column;
           max-width: unset;
           padding-top: 0;
           padding-left: 1rem;
           padding-right: 1rem;
+          margin-bottom: 2rem;
         }
 
         .video-selector {
