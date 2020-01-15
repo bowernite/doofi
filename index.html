@@ -90,6 +90,7 @@
         font-family: "Fjalla One", Roboto, sans-serif;
         background: rgb(0, 0, 57);
         color: white;
+        letter-spacing: 1.1px;
       }
 
       header {
@@ -156,6 +157,8 @@
         font-size: 48px;
         text-align: center;
         margin-bottom: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
       }
 
       .photos-section {
@@ -200,6 +203,7 @@
         padding: 2rem;
         background: #000063;
         border-radius: 4rem;
+        max-width: 95%;
       }
 
       .video-selector {
@@ -219,8 +223,8 @@
       }
 
       .video-button small {
-        font-size: 1rem;
-        font-style: italic;
+        font-size: 0.75rem;
+        letter-spacing: 1.2px;
       }
 
       .video-button:active,
@@ -232,6 +236,23 @@
 
       .video-button:not(:last-of-type) {
         margin-bottom: 1rem;
+      }
+
+      .video-container {
+        padding-top: 56.25%;
+        height: 0px;
+        position: relative;
+        flex: auto;
+        width: 1000px;
+        max-width: 100%;
+      }
+
+      #selected-video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
 
       .booking-btn {
@@ -352,8 +373,52 @@
           flex-direction: column;
         }
 
-        .videos-container {
-          grid-template-columns: 1fr;
+        .videos-section {
+          align-items: stretch;
+        }
+
+        .video-player {
+          border-radius: 0;
+          border: none;
+          background: transparent;
+          flex-direction: column;
+          max-width: unset;
+          padding-top: 0;
+        }
+
+        .video-selector {
+          flex-direction: row;
+          overflow-x: scroll;
+          margin-right: 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          margin-bottom: 1rem;
+          mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20px,
+            black 90%,
+            transparent
+          );
+          -webkit-mask-image: linear-gradient(
+            to right,
+            black,
+            black 95%,
+            transparent
+          );
+        }
+
+        .video-button {
+          min-width: max-content;
+          max-width: 10rem;
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          padding: 1rem;
+          margin-right: 1rem !important;
+        }
+
+        .video-button small {
+          font-size: 0.75rem;
         }
       }
 
@@ -507,7 +572,7 @@
           <button class="video-button btn" onclick="selectVideo('twist')">
             Twist and Shout / La Bamba
             <br />
-            <small>The Beatles / Ritche Valens</small>
+            <small>The Beatles / Ritchie Valens</small>
           </button>
           <button class="video-button btn" onclick="selectVideo('shout')">
             Shout
@@ -526,17 +591,17 @@
           </button>
         </div>
         <!-- TODO: What to do with poster here? -->
-        <video
-          id="selected-video"
-          class="video"
-          controls
-          height="560"
-          width="1000"
-          src="assets/live-performances/twist-and-shout.mp4"
-          type="video/mp4"
-          controlslist="nodownload"
-          poster="assets/live-performances/twist-and-shout__poster.png"
-        ></video>
+        <div class="video-container">
+          <video
+            id="selected-video"
+            class="video"
+            controls
+            src="assets/live-performances/twist-and-shout.mp4"
+            type="video/mp4"
+            controlslist="nodownload"
+            poster="assets/live-performances/twist-and-shout__poster.png"
+          ></video>
+        </div>
       </div>
 
       <a
