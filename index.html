@@ -80,6 +80,20 @@
         });
         button.classList.add("video-button--selected");
       }
+
+      function expandContactButtons() {
+        console.log("expand");
+        document
+          .querySelector(".contact-buttons")
+          .classList.add("contact-buttons--expanded");
+      }
+
+      function collapseContactButtons() {
+        console.log("collapse");
+        document
+          .querySelector(".contact-buttons")
+          .classList.remove("contact-buttons--expanded");
+      }
     </script>
     <style>
       /* purple--light: #432892 */
@@ -398,9 +412,30 @@
         }
 
         .contact-buttons {
-          top: 0.5rem;
-          right: 0.5rem;
+          top: unset;
+          bottom: 1rem;
+          right: 0.75rem;
           justify-content: space-evenly;
+          flex-direction: column-reverse;
+        }
+
+        .contact-buttons__overlay {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+
+        .contact-buttons__background {
+          background: black;
+          opacity: 0;
+          transition: opacity 0.3s;
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
         }
 
         .contact-buttons__btn {
@@ -408,7 +443,60 @@
           height: 3.5rem;
           width: 3.5rem;
           opacity: 0.75;
-          margin-bottom: 0.75rem;
+          margin-top: 0.75rem;
+          margin-bottom: 0;
+          border: 1px solid lightgray;
+          transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .contact-buttons__btn:nth-of-type(3) {
+          transform: translateY(7.5rem) scale(0.9);
+          z-index: -2;
+        }
+
+        .contact-buttons__btn:nth-of-type(2) {
+          transform: translateY(3.75rem) scale(0.95);
+          z-index: -1;
+        }
+
+        .contact-buttons__btn:first-of-type {
+          opacity: 0.9;
+          z-index: 2;
+        }
+
+        .contact-buttons__btn:first-of-type .contact-buttons__icon {
+          opacity: 0.7;
+        }
+
+        .contact-buttons__btn:not(:first-of-type) .contact-buttons__icon {
+          opacity: 0.1;
+        }
+
+        /* EXPANDED */
+
+        .contact-buttons--expanded .contact-buttons__background {
+          opacity: 0.6;
+        }
+
+        .contact-buttons--expanded .contact-buttons__overlay {
+          /* Allows the buttons themselves to actually receive clicks (and not have the overlay block them) */
+          pointer-events: none;
+        }
+
+        .contact-buttons--expanded .contact-buttons__btn {
+          opacity: 0.98 !important;
+          transform: scale(1.05);
+          margin-top: 1rem;
+          z-index: 10;
+        }
+
+        .contact-buttons--expanded .contact-buttons__btn:not(:first-of-type) {
+          transform: translateY(0) scale(1.05);
+          z-index: unset;
+        }
+
+        .contact-buttons--expanded .contact-buttons__icon {
+          opacity: 1 !important;
         }
       }
 
@@ -577,6 +665,14 @@
         <img class="contact-buttons__icon" src="/assets/messenger.png" alt="" />
         <!-- <small>Message</small> -->
       </a>
+      <div
+        class="contact-buttons__overlay"
+        onclick="expandContactButtons()"
+      ></div>
+      <div
+        class="contact-buttons__background"
+        onclick="collapseContactButtons()"
+      ></div>
     </div>
 
     <section class="photos-section">
