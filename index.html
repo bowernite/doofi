@@ -382,9 +382,9 @@
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
 
-        .contact-buttons__background {
+        .overlay {
           background: black;
-          opacity: 0;
+          opacity: 0.3;
           transition: opacity 0.3s;
           -webkit-transition: opacity 0.3s;
           position: fixed;
@@ -392,7 +392,13 @@
           bottom: 0;
           left: 0;
           right: 0;
-          z-index: -1;
+          z-index: 2;
+          pointer-events: all;
+        }
+
+        .overlay--hidden {
+          pointer-events: none;
+          opacity: 0;
         }
 
         .contact-buttons__btn {
@@ -419,7 +425,6 @@
 
         .contact-buttons__btn:first-of-type {
           opacity: 0.9;
-          z-index: 2;
         }
 
         .contact-buttons__btn:first-of-type .contact-buttons__icon {
@@ -627,11 +632,11 @@
         class="contact-buttons__overlay"
         onclick="expandContactButtons()"
       ></div>
-      <div
-        class="contact-buttons__background"
-        onclick="collapseContactButtons()"
-      ></div>
     </div>
+    <div
+      class="overlay overlay--hidden"
+      onclick="collapseContactButtons()"
+    ></div>
 
     <section class="photos-section">
       <h2 class="section-heading">Photos</h2>
@@ -755,7 +760,6 @@
       <img class="footer-logo" src="/assets/logo/logo.svg" alt="The Doofi" />
     </footer>
 
-
     <script>
       /**
        * Workaround to be able to calculate the height of the viewport on initial page load, and use it as a CSS variable. The intention for this is for browsers (mainly mobile) who's viewport height changes when the user scrolls. In these cases, browser engines typically calculate `vh`s based on the maximum viewport, not the initial viewport (or a live viewport)
@@ -800,12 +804,14 @@
         document
           .querySelector(".contact-buttons")
           .classList.add("contact-buttons--expanded");
+        document.querySelector(".overlay").classList.remove("overlay--hidden");
       }
 
       function collapseContactButtons() {
         document
           .querySelector(".contact-buttons")
           .classList.remove("contact-buttons--expanded");
+        document.querySelector(".overlay").classList.add("overlay--hidden");
       }
 
       // Show the contact buttons when the user scrolls, unless it's at the top of the page
@@ -815,8 +821,11 @@
           if (!contactButtons.classList.contains("contact-buttons--hidden")) {
             contactButtons.classList.add("contact-buttons--hidden");
           }
-        } else if (contactButtons.classList.contains("contact-buttons--hidden")) {
-            contactButtons.classList.remove("contact-buttons--hidden");
+          collapseContactButtons();
+        } else if (
+          contactButtons.classList.contains("contact-buttons--hidden")
+        ) {
+          contactButtons.classList.remove("contact-buttons--hidden");
         }
       });
     </script>
