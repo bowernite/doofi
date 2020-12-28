@@ -621,7 +621,7 @@
         <!-- <small>Email</small> -->
       </a>
       <a href="//facebook.com/thedoofi/" class="contact-buttons__btn btn">
-        <img class="contact-buttons__icon" src="/assets/fb.png" alt="" />
+        <img class="contact-buttons__icon" src="/assets/__fb.png" alt="" />
         <!-- <small>Facebook</small> -->
       </a>
       <a href="//m.me/thedoofi" class="contact-buttons__btn btn">
@@ -673,7 +673,7 @@
             class="gallery-img wide-img full-bleed-on-tablet"
             src="assets/photos/wide-2.jpg"
           />
-          <img class="gallery-img wide-img " src="assets/photos/wide-5.jpg" />
+          <img class="gallery-img wide-img" src="assets/photos/wide-5.jpg" />
         </div>
 
         <div class="skinny-img-group only-desktop">
@@ -772,20 +772,20 @@
       var videos = {
         twist: {
           src: "assets/live-performances/twist-and-shout.mp4",
-          poster: "assets/live-performances/twist-and-shout__poster.png"
+          poster: "assets/live-performances/twist-and-shout__poster.png",
         },
         shout: {
           src: "assets/live-performances/shout.mp4",
-          poster: "assets/live-performances/shout__poster.png"
+          poster: "assets/live-performances/shout__poster.png",
         },
         beast: {
           src: "assets/live-performances/beast-of-burden.mp4",
-          poster: "assets/live-performances/beast-of-burden__poster.png"
+          poster: "assets/live-performances/beast-of-burden__poster.png",
         },
         psycho: {
           src: "assets/live-performances/psycho-killer.mp4",
-          poster: "assets/live-performances/psycho-killer__poster.png"
-        }
+          poster: "assets/live-performances/psycho-killer__poster.png",
+        },
       };
       function selectVideo(video, button) {
         var videoInfo = videos[video];
@@ -794,7 +794,7 @@
         videoEl.poster = videoInfo.poster;
 
         // Style selected button/video
-        document.querySelectorAll(".video-button").forEach(button => {
+        document.querySelectorAll(".video-button").forEach((button) => {
           button.classList.remove("video-button--selected");
         });
         button.classList.add("video-button--selected");
@@ -816,7 +816,7 @@
 
       // Show the contact buttons when the user scrolls, unless it's at the top of the page
       var contactButtons = document.querySelector(".contact-buttons");
-      window.addEventListener("scroll", function() {
+      window.addEventListener("scroll", function () {
         collapseContactButtons();
 
         if (window.pageYOffset <= 0) {
